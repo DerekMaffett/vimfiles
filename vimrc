@@ -24,20 +24,20 @@ endif
 Bundle 'gmarik/vundle'
 
 Bundle 'bling/vim-airline'
-let g:airline#extensions#branch#enabled = 0
-let g:airline_section_y = ''
-let g:airline_theme='wombat'
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '⭡'
+" let g:airline#extensions#branch#enabled = 0
+" let g:airline_section_y = ''
+" let g:airline_theme='wombat'
+" 
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+" let g:airline_left_sep = '⮀'
+" let g:airline_left_alt_sep = '⮁'
+" let g:airline_right_sep = '⮂'
+" let g:airline_right_alt_sep = '⮃'
+" let g:airline_symbols.branch = '⭠'
+" let g:airline_symbols.readonly = '⭤'
+" let g:airline_symbols.linenr = '⭡'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl-P
@@ -50,14 +50,14 @@ let g:airline_symbols.linenr = '⭡'
 " It must be built, it requires python-dev as a dependency
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Bundle 'kien/ctrlp.vim'
-Bundle 'JazzCore/ctrlp-cmatcher'
+"Bundle 'JazzCore/ctrlp-cmatcher'
 
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+" let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " Don't manage working directory
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_follow_symlinks = 2
+" let g:ctrlp_working_path_mode = 0
+" let g:ctrlp_follow_symlinks = 2
 
 map <leader>jv :let g:ctrlp_default_input = 'app/views/'<cr>:CtrlP<cr>
 map <leader>jc :let g:ctrlp_default_input = 'app/controllers/'<cr>:CtrlP<cr>
