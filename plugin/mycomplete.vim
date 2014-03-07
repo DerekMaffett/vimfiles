@@ -53,18 +53,18 @@ let g:acp_behavior['css'] = [
   \  {
   \    'command' : "\<C-x>\<C-o>",
   \    'meets'   : 'acp#meetsForCssOmni',
-  \    'repeat'  : 1,
+  \    'repeat'  : 0,
   \  },
   \  {
   \    'command' : "\<C-x>\<C-f>",
   \    'meets'   : 'acp#meetsForFile',
-  \    'repeat'  : 1,
+  \    'repeat'  : 0,
   \  },
   \  {
   \    'command': "\<C-X>\<C-U>",
   \    'completefunc': 'mycomplete#CompleteCombinerCss',
   \    'meets': 'acp#meetsForKeyword',
-  \    'repeat': 1
+  \    'repeat': 0
   \  },
   \  {
   \    'command' : "\<C-p>",

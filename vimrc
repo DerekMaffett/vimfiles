@@ -415,6 +415,8 @@ Bundle "L9"
 Bundle "dirkwallenstein/vim-autocomplpop"
 Bundle "dirkwallenstein/vim-localcomplete"
 
+Bundle "terryma/vim-multiple-cursors"
+
 :runtime macros/matchit.vim
 
 filetype plugin indent on
@@ -468,6 +470,8 @@ set t_vb=
 " Use modeline overrides
 set modeline
 set modelines=10
+
+"set noshelltemp
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Performance optimizations

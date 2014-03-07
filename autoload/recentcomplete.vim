@@ -1,5 +1,5 @@
 function! s:git_diff(args)
-  return " git diff --diff-filter=AM --no-color ".a:args." 2>/dev/null | grep \\^+ 2>/dev/null | grep -v '+++ [ab]/' 2>/dev/null "
+  return " git diff --diff-filter=AM --no-color ".a:args." 2>/dev/null | grep \\^+ 2>/dev/null | grep -v '+++ [ab]/' 2>/dev/null | sed 's/^\+//' "
 endfunction
 
 function! s:buffer_contents()
@@ -25,8 +25,7 @@ function! s:find_start()
 endfunction
 
 function! s:extract_keywords_from_diff(diff)
-  let l:lines = filter(split(a:diff, "\n"), 'v:val =~# ''^+\(++ [ab]\)\@!''')
-  let l:lines = map(l:lines, 'strpart(v:val, 1)')
+  let l:lines = split(a:diff, "\n")
 
   return split(substitute(join(l:lines), '\k\@!.', ' ', 'g'))
 endfunction
@@ -72,7 +71,29 @@ function! s:recently_committed_keywords()
   return l:result
 endfunction
 
+function s:python(args)
+  python << endpython
+import vim
+import subprocess
+import string
+output = subprocess.check_output(vim.eval("a:args"), shell=True)
+vim.command("return %s" % repr(string.split(output, "\n")))
+endpython
+endfunction
+
+function s:vim()
+  call system("git status")
+endfunction
+
 function! s:matches(keyword_base)
+  return s:python("echo hi")
+  " call s:vim()
+  " let l:keywords = []
+  "   :py vim.command("let g:vim_var='%s'" %python_var.replace("'", "''")) 
+  "For integers, simple dictionaries and lists: 
+  ":py vim.command("let g:vim_var=%s" %python_var) 
+  ":py vim.command("let g:vim_var=%s" %({'a':1,'b':2})) 
+
   let l:keywords = s:buffer_keywords()
   let l:keywords += s:untracked_keywords()
   let l:keywords += s:uncommitted_keywords()
