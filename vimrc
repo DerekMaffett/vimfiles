@@ -623,6 +623,13 @@ NeoBundle 'paredit.vim'
 NeoBundle 'nicholaides/words-to-avoid.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Omnisharp 
+" 
+" Provides support for C#
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'OmniSharp/omnisharp-vim'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " splitjoin.vim
 "
 " Language aware split/join, for splitting things like postfix ifs
