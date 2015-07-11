@@ -247,14 +247,16 @@ autocmd BufNewFile,BufRead *_spec.coffee map <buffer> <leader>t :w<cr>:!zeus tea
 autocmd BufNewFile,BufRead *_spec.js map <buffer> <leader>t :w<cr>:!zeus teaspoon %<cr>
 
 function UnmarkAllTests()
-  :silent %s/describe.only/describe/g
-  :silent %s/it.only/it/g
+  let a:cursor_pos = getpos('.')
+  :%s/describe.only/describe/g
+  :%s/it.only/it/g
+  :call setpos('.', a:cursor_pos)
   :noh
 endfunction
 
-function MarkSingleTest()
+function MarkSingleTestSection()
   :call UnmarkAllTests()
-  :?it(? s/it(/it.only(
+  :?it(\|describe? s/it\|describe/&.only
   :noh
 endfunction
 
@@ -265,7 +267,7 @@ function MarkAllTests()
 endfunction
 
 nnoremap <leader><leader>t :call MarkAllTests()<Enter>
-nnoremap <leader><leader>T :call MarkSingleTest()<Enter>
+nnoremap <leader><leader>T :call MarkSingleTestSection()<Enter>
 nnoremap <leader><leader>R :call UnmarkAllTests()<Enter>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
