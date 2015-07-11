@@ -246,6 +246,28 @@ map <silent> <leader>i :let g:vroom_use_dispatch = !g:vroom_use_dispatch<cr>
 autocmd BufNewFile,BufRead *_spec.coffee map <buffer> <leader>t :w<cr>:!zeus teaspoon %<cr>
 autocmd BufNewFile,BufRead *_spec.js map <buffer> <leader>t :w<cr>:!zeus teaspoon %<cr>
 
+function UnmarkAllTests()
+  :silent %s/describe.only/describe/g
+  :silent %s/it.only/it/g
+  :noh
+endfunction
+
+function MarkSingleTest()
+  :call UnmarkAllTests()
+  :?it(? s/it(/it.only(
+  :noh
+endfunction
+
+function MarkAllTests()
+  :call UnmarkAllTests()
+  :1/describe/ s/describe(/describe.only(
+  :noh
+endfunction
+
+nnoremap <leader><leader>t :call MarkAllTests()<Enter>
+nnoremap <leader><leader>T :call MarkSingleTest()<Enter>
+nnoremap <leader><leader>R :call UnmarkAllTests()<Enter>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim coffeescript runtime files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
