@@ -246,29 +246,37 @@ map <silent> <leader>i :let g:vroom_use_dispatch = !g:vroom_use_dispatch<cr>
 autocmd BufNewFile,BufRead *_spec.coffee map <buffer> <leader>t :w<cr>:!zeus teaspoon %<cr>
 autocmd BufNewFile,BufRead *_spec.js map <buffer> <leader>t :w<cr>:!zeus teaspoon %<cr>
 
-function UnmarkAllTests()
+function JSVroom(option)
   let a:cursor_pos = getpos('.')
-  :%s/describe.only/describe/g
-  :%s/it.only/it/g
+  :call UnmarkAllTests()
+
+  if a:option == 'all'
+    :call MarkAllTests()
+  elseif a:option == 'single'
+    :call MarkSingleTestSection(a:cursor_pos)
+  endif
+
   :call setpos('.', a:cursor_pos)
   :noh
 endfunction
 
-function MarkSingleTestSection()
-  :call UnmarkAllTests()
-  :?it(\|describe? s/it\|describe/&.only
-  :noh
+function UnmarkAllTests()
+  :%s/describe.only/describe/g
+  :%s/it.only/it/g
+endfunction
+
+function MarkSingleTestSection(cursor_pos)
+  :call setpos('.', a:cursor_pos)
+  :?it(\|describe(? s/it\|describe/&.only
 endfunction
 
 function MarkAllTests()
-  :call UnmarkAllTests()
   :1/describe/ s/describe(/describe.only(
-  :noh
 endfunction
 
-nnoremap <leader><leader>t :call MarkAllTests()<Enter>
-nnoremap <leader><leader>T :call MarkSingleTestSection()<Enter>
-nnoremap <leader><leader>R :call UnmarkAllTests()<Enter>
+nnoremap <leader><leader>t :call JSVroom('all')<Enter>
+nnoremap <leader><leader>T :call JSVroom('single')<Enter>
+nnoremap <leader><leader>R :call JSVroom('reset')<Enter>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim coffeescript runtime files
