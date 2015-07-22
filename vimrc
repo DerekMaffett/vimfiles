@@ -263,11 +263,12 @@ endfunction
 function UnmarkAllTests()
   :%s/describe.only/describe/g
   :%s/it.only/it/g
+  :%s/context.only/context/g
 endfunction
 
 function MarkSingleTestSection(cursor_pos)
   :call setpos('.', a:cursor_pos)
-  :?it(\|describe(? s/it\|describe/&.only
+  :?it(\|describe(\|context(? s/it\|describe\|context/&.only
 endfunction
 
 function MarkAllTests()
