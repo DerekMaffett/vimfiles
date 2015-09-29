@@ -516,6 +516,18 @@ if has('conceal')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neomake
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'benekastah/neomake'
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_ruby_enabled_makers = ['rubocop']
+let g:neomake_json_enabled_makers = ['jsonlint']
+
+" autocmd! BufWinEnter,BufWritePost * Neomake
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dockerfile.vim
 "
 " Syntax for Dockerfile
