@@ -587,11 +587,19 @@ NeoBundle 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-filetype-haskell
+" haskell-vim
 "
-" Indentation for haskell files
+" Haskell config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'neovimhaskell/haskell-vim'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-hindent
+"
+" Haskell indentation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'alx741/vim-hindent'
+let g:hindent_on_save = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabular
