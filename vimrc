@@ -94,6 +94,15 @@ NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tomtom/tcomment_vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Elm config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'elmcast/elm-vim'
+
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl-P
 "
 " Open a file (like cmd-t but better). Use ,f or ,j(something, see bindings
