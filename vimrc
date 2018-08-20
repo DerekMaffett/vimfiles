@@ -94,6 +94,11 @@ NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tomtom/tcomment_vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Typescript syntax highlighting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'leafgarland/typescript-vim'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Elm config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'elmcast/elm-vim'
@@ -496,7 +501,6 @@ NeoBundle 'tpope/vim-scriptease'
 " neocomplete requires vim compiled w/ lua support.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'dirkwallenstein/vim-localcomplete'
-NeoBundle 'aaronjensen/vim-recentcomplete'
 
 NeoBundle 'Shougo/neocomplete.vim'
 
@@ -665,8 +669,8 @@ NeoBundle 'paredit.vim'
 NeoBundle 'nicholaides/words-to-avoid.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Omnisharp 
-" 
+" Omnisharp
+"
 " Provides support for C#
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'OmniSharp/omnisharp-vim'
