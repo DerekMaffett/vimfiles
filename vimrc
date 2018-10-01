@@ -661,6 +661,11 @@ NeoBundle 'tpope/vim-leiningen'
 NeoBundle 'paredit.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'posva/vim-vue'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " words-to-avoid
 "
 " Highlights words like basically, just, so, etc in markdown files so I don't
